@@ -1,0 +1,11 @@
+sequenceDiagram
+  participant browser as browser
+  participant server as server
+
+  browser ->>+ server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+  Note right of browser: Request contains contains the new note as JSON, containing both the content and the timestamp
+  Note right of browser: Browser stays on the same page, and it sends no further HTTP requests
+  Note right of browser: JavaScript code handles the form's submit event, creates a new note, adds it to the notes list,<br>rerenders the note list on the page and sends the new note to the server
+  server -->>- browser: status code 201 created
+
+
